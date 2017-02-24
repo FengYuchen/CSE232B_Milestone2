@@ -43,6 +43,12 @@ public class Main {
         XqueryLexer lex = new XqueryLexer(inputStream);
         CommonTokenStream tokenStream = new CommonTokenStream(lex);
         XqueryParser parser = new XqueryParser(tokenStream);
+        String[] arg = new String[4];
+        arg[0] = "anltr.Xquery";
+        arg[1] = "xq";
+        arg[2] = "-gui";
+        arg[3] = "input.txt";
+        TestRig.main(arg);
         ParseTree tree = parser.xq();
         MyVisitor myVistor = new MyVisitor();
         LinkedList<Node> result = new LinkedList<Node>();
@@ -71,12 +77,7 @@ public class Main {
 
         Source src = new DOMSource(doc);
         transformer.transform(src, res);
-        String[] arg = new String[4];
-        arg[0] = "anltr.Xquery";
-        arg[1] = "xq";
-        arg[2] = "-gui";
-        arg[3] = "input.txt";
-        TestRig.main(arg);
+
 
     }
 
